@@ -16,7 +16,7 @@ This is a simple To-Do application built with React and Node.js. Users can manag
 
 ## Prerequisites
 - Node.js (version >= 12.0.0)
-- MongoDB (make sure MongoDB is installed and running locally)
+- MongoDB (I have used Cloud MongoDB, it's already set in the configuration so no need of replacing it.)
 
 ## Setup Instructions
 
