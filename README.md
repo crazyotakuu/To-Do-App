@@ -27,15 +27,12 @@ This is a simple To-Do application built with React and Node.js. Users can manag
    cd backend
 
 ### Install dependencies
-    ```bash
     npm install
 
 ### Start the backend server
-    ```bash
     npm start
 
 ## Front-End Setup
-```bash
     cd frontend
     npm install
     npm start
