@@ -1,0 +1,53 @@
+/* Navbar.css */
+
+/* Navbar container */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  color: white;
+  padding: 10px;
+}
+
+/* Container for links */
+.nav-links {
+  display: flex;
+  gap: 10px;
+}
+
+/* Styling for all navigation links */
+.nav-link,
+.nav-link-btn,
+.logout-btn {
+  text-decoration: none;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.nav-link:hover,
+.nav-link-btn:hover,
+.logout-btn:hover {
+  background-color: #555;
+}
+
+/* Styling for logout button */
+.logout-btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+/* Styling for Login and Sign Up buttons */
+.nav-link-btn {
+  background-color: #007bff;
+  border: none;
+  cursor: pointer;
+}
+
+.nav-link-btn:hover {
+  background-color: #0056b3;
+}
