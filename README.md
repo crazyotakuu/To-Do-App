@@ -26,13 +26,18 @@ This is a simple To-Do application built with React and Node.js. Users can manag
    git clone https://github.com/crazyotakuu/To-Do-App
    cd backend
 
-### Install dependencies
+2. Install dependencies
     npm install
 
-### Start the backend server
+3. Start the backend server
     npm start
 
 ## Front-End Setup
+1. Go to the Directory
     cd frontend
+
+2. Install dependencies
     npm install
+
+3. Start the backend server
     npm start
