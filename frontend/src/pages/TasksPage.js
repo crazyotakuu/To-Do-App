@@ -46,7 +46,7 @@ const TasksPage = () => {
 
   return (
     <div className="container">
-      <h1>Your Tasks</h1>
+      <h2>Your Tasks</h2>
       <form onSubmit={handleAddTask}>
         <input
           type="text"

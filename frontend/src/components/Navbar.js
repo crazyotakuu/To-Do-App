@@ -9,12 +9,16 @@ const Navbar = () => {
   return (
     <nav>
       <div className="nav-links">
-        <Link to="/" className="nav-link">Home</Link>
+        <Link to="/" id="nav-link-head">To-Do App</Link>
         {user && <Link to="/tasks" className="nav-link">Tasks</Link>}
       </div>
       <div>
         {user ? (
-          <button className="logout-btn" onClick={logout}>Logout</button>
+          <div className="nav-links">
+            {/* <button to="/login" className="nav-link-btn" onClick={logout}>Logout</button> */}
+            <Link to="/login" className="nav-link-btn" onClick={logout}>Logout</Link>
+          </div>
+          
         ) : (
           <div className="nav-links">
             <Link to="/login" className="nav-link-btn">Login</Link>

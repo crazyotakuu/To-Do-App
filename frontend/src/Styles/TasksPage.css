@@ -16,6 +16,13 @@
     flex-direction: column;
     align-items: center;
     margin-bottom: 20px;
+    width: 400px;
+    margin: 0 auto;
+    border: 1px solid black;
+    padding: 20px;
+    background-color: #ecedef;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
   
   input {
@@ -28,6 +35,7 @@
   
   button {
     padding: 10px 20px;
+    margin-top: 15px;
     color: white;
     background-color: #007bff;
     border: none;
@@ -41,6 +49,7 @@
   }
   
   .tasks-list {
+    margin-top: 30px;
     display: flex;
     flex-direction: column;
     align-items: center;
