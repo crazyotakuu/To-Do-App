@@ -7,7 +7,7 @@ const Task = require('../models/Task');
 const auth = require('../middleware/auth'); // Middleware to authenticate requests
 
 
-//User Registration
+//User Registration Route
 router.post('/register', async(req, res)=>{
     console.log("Currently in user api route, trying to create the user! ")
     const{username, email, password}=req.body;
@@ -23,6 +23,7 @@ router.post('/register', async(req, res)=>{
     }
 });
 
+//User Login Route
 router.post('/login', async(req,res)=>{
     console.log("Currently in Users api route, trying to login the user! ")
     const{email, password}=req.body;
@@ -46,6 +47,7 @@ router.post('/login', async(req,res)=>{
     }
 });
 
+//Task creation Route
 router.post('/tasks', auth, async (req, res) => {
     console.log("Currently in Tasks api route, trying to create the task! ")
     const { title, description } = req.body;
@@ -115,10 +117,10 @@ router.post('/tasks', auth, async (req, res) => {
         console.log("Unable to authorize the task to be deleted")
         return res.status(403).send('Unauthorized');
       }
-      await task.remove();
+      await task.deleteOne({ _id: id });
       console.log("Task deleted succesfully")
       res.send('Task deleted successfully');
-    } catch (error) {
+    } catch (err) {
       console.error("Some error while deleting the task, Error:",err.message)
       res.status(500).send('Server error');
     }

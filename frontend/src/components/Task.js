@@ -1,10 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 const TaskContainer = styled.div`
   background-color: #e9ecef;
   padding: 20px;
-  // margin-bottom: 15px;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   display: flex;
@@ -33,11 +32,86 @@ const TaskDescriptionBox = styled(Box)`
   font-weight: 400;
 `;
 
-const Task = ({ task }) => {
+const ButtonContainer = styled.div`
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+`;
+
+const Button = styled.button`
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+  font-size: 1rem;
+  
+  &:hover {
+    background-color: #0056b3;
+  }
+`;
+
+const DeleteButton = styled(Button)`
+  background-color: #dc3545;
+  
+  &:hover {
+    background-color: #c82333;
+  }
+`;
+
+const Task = ({ task, onUpdate, onDelete }) => {
+  const [isEditing, setIsEditing] = useState(false);
+  const [title, setTitle] = useState(task.title);
+  const [description, setDescription] = useState(task.description);
+
+  const handleUpdateClick = () => {
+    setIsEditing(true);
+  };
+
+  const handleSaveClick = () => {
+    onUpdate(task._id, title, description);
+    setIsEditing(false);
+  };
+
+  const handleCancelClick = () => {
+    setIsEditing(false);
+    setTitle(task.title);
+    setDescription(task.description);
+  };
+
+  const handleDeleteClick = () => {
+    onDelete(task._id);
+  };
+
   return (
     <TaskContainer>
-      <TaskTitleBox>{task.title}</TaskTitleBox>
-      <TaskDescriptionBox>{task.description}</TaskDescriptionBox>
+      {isEditing ? (
+        <>
+          <input 
+            type="text" 
+            value={title} 
+            onChange={(e) => setTitle(e.target.value)} 
+          />
+          <textarea 
+            value={description} 
+            onChange={(e) => setDescription(e.target.value)} 
+          />
+          <ButtonContainer>
+            <Button onClick={handleSaveClick}>Save</Button>
+            <Button onClick={handleCancelClick}>Cancel</Button>
+          </ButtonContainer>
+        </>
+      ) : (
+        <>
+          <TaskTitleBox>{task.title}</TaskTitleBox>
+          <TaskDescriptionBox>{task.description}</TaskDescriptionBox>
+          <ButtonContainer>
+            <Button onClick={handleUpdateClick}>Update</Button>
+            <DeleteButton onClick={handleDeleteClick}>Delete</DeleteButton>
+          </ButtonContainer>
+        </>
+      )}
     </TaskContainer>
   );
 };

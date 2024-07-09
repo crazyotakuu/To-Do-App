@@ -1,5 +1,4 @@
 import React, { createContext, useState, useEffect } from 'react';
-// import axios from 'axios';
 import api from '../api';
 
 export const AuthContext = createContext();
@@ -11,7 +10,7 @@ export const AuthProvider = ({ children }) => {
     const token = localStorage.getItem('token');
     if (token) {
       // Validate the token and set the user
-      setUser({ token }); // Simplified for this example
+      setUser({ token });
     }
   }, []);
 

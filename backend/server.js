@@ -9,12 +9,14 @@ connectDB();
 
 const app = express();
 
+// Only allow requests from this origin
 const corsOptions = {
-  origin: 'http://localhost:3000', // Only allow requests from this origin
-  optionsSuccessStatus: 200, // Some legacy browsers choke on 204
+  origin: 'http://localhost:3000', 
+  optionsSuccessStatus: 200,
 };
 
-app.use(cors(corsOptions)); // Use the configured CORS options
+// Use the configured CORS options
+app.use(cors(corsOptions)); 
 
 app.use(express.json());
 

@@ -1,19 +1,19 @@
 import React, { useState, useContext } from 'react';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
-import '../Styles/LoginPage.css'; // Import the CSS file for styles
+import '../Styles/LoginPage.css';
 
 const LoginPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const { login } = useContext(AuthContext);
-  const navigate = useNavigate(); // Initialize useNavigate
+  const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      await login(email, password); // Wait for the login to complete
-      navigate('/tasks'); // Redirect to the tasks page
+      await login(email, password); 
+      navigate('/tasks');
     } catch (error) {
       console.error('Error logging in', error);
     }

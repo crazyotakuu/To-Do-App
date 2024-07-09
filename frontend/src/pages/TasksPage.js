@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState, useCallback } from 'react';
 import api from '../api';
 import { AuthContext } from '../context/AuthContext';
 import Task from '../components/Task';
-import '../Styles/TasksPage.css'; // Import CSS file for styling
+import '../Styles/TasksPage.css';
 
 const TasksPage = () => {
   const { user } = useContext(AuthContext);
@@ -42,6 +42,30 @@ const TasksPage = () => {
     }
   };
 
+  const handleUpdateTask = async (id, updatedTitle, updatedDescription) => {
+    try {
+      await api.put(
+        `/api/tasks/${id}`,
+        { title: updatedTitle, description: updatedDescription },
+        { headers: { Authorization: `Bearer ${user.token}` } }
+      );
+      fetchTasks();
+    } catch (error) {
+      console.error('Error updating task', error);
+    }
+  };
+
+  const handleDeleteTask = async (id) => {
+    try {
+      await api.delete(`/api/tasks/${id}`, {
+        headers: { Authorization: `Bearer ${user.token}` }
+      });
+      fetchTasks();
+    } catch (error) {
+      console.error('Error deleting task', error);
+    }
+  };
+  
   return (
     <div className="container">
         <div className="form-container">
@@ -66,12 +90,16 @@ const TasksPage = () => {
         <div className='tasks-container'>
           <h1 style={{ fontFamily: "Maname, serif" }}>Your Tasks</h1>
           <div className="tasks-list">
-            {tasks.map(task => (
-              <div className="task" key={task._id}>
-                <Task task={task} />
-              </div>
-            ))}
-          </div>
+          {tasks.map((task) => (
+            <div className="task" key={task._id}>
+              <Task
+                task={task}
+                onUpdate={handleUpdateTask}
+                onDelete={handleDeleteTask}
+              />
+            </div>
+          ))}
+        </div>
         </div>
     </div>
   );
