@@ -1,5 +1,5 @@
 /* HomePage.css */
-.container {
+.homepage {
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
@@ -7,12 +7,14 @@
   }
   
   h1 {
-    font-size: 2.5rem;
+    font-family: "Maname", serif;
+    font-size: 3rem;
     color: #333;
   }
   
   p {
-    font-size: 1.2rem;
+    font-family: "Playwrite GB S", cursive;
+    font-size: 1.25rem;
     color: #666;
     margin-bottom: 15px;
   }

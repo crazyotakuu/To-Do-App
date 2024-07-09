@@ -1,66 +1,90 @@
-/* TasksPage.css */
 .container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-  }
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box
+}
+
+.form-container {
+  width: 50%;
+  max-height: 675px;
+  /* border-right: black 2px solid; */
+}
+
+.form-container form {
   
-  h1 {
-    font-size: 2rem;
-    color: #333;
-    text-align: center;
-  }
-  
-  form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 20px;
-    width: 400px;
-    margin: 0 auto;
-    border: 1px solid black;
-    padding: 20px;
-    background-color: #ecedef;
+  width: 70%;
+  margin: 0% 15%;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  background-color: #ecedef;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
+}
+
+.form-container input{
   
-  input {
-    width: 80%;
+  width: 60%;
+  height: 20px;
+  font-size: large;
+    padding: 10px;
+    margin-left: 17%;
+    /* margin: 5px 0; */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.form-container input:nth-child(2){
+
+  height: 130px;
+  
+}
+
+/* .form-container input:nt {
+  width: 80%;
     padding: 10px;
     margin: 5px 0;
     border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
-  button {
-    padding: 10px 20px;
-    margin-top: 15px;
+    border-radius: 4px; */
+
+.form-container button {
+  width: 30%;
+  font-size: large;
+  padding: 10px 20px;
+    margin-left: 34%;
     color: white;
     background-color: #007bff;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    /* margin-top: 10px; */
-  }
-  
-  button:hover {
-    background-color: #0056b3;
-  }
-  
-  .tasks-list {
-    margin-top: 30px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .tasks-list .task {
-    width: 80%;
-    background-color: #f9f9f9;
-    padding: 15px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    margin-bottom: 10px;
-  }
-  
+}
+
+.form-container button:hover {
+  background-color: #0056b3;
+}
+
+
+.tasks-container{
+  width: 50%;
+}
+.tasks-list {
+  width: 70%;
+  padding: 10px;
+  margin-left: 15%;
+  max-height: 500px; /* Adjust height as needed */
+  overflow-y: auto;
+  border: 3px solid rgba(0, 0, 0, 0.432);
+  border-radius: 4px;
+}
+
+.task {
+  margin: 20px 5px;
+  padding: 10px;
+  border: 2px solid #cccccc73;
+  border-radius: 4px;
+}

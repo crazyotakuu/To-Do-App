@@ -10,7 +10,6 @@ const TasksPage = () => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
 
-  // Define fetchTasks as a memoized callback
   const fetchTasks = useCallback(async () => {
     try {
       const response = await api.get('/api/tasks', {
@@ -23,8 +22,8 @@ const TasksPage = () => {
   }, [user]);
 
   useEffect(() => {
-    fetchTasks(); // Initial fetch when component mounts or user changes
-  }, [fetchTasks]); // Fetch tasks whenever fetchTasks function changes
+    fetchTasks();
+  }, [fetchTasks]);
 
   const handleAddTask = async (e) => {
     e.preventDefault();
@@ -34,7 +33,6 @@ const TasksPage = () => {
         { title, description },
         { headers: { Authorization: `Bearer ${user.token}` } }
       );
-      // Clear tasks and fetch again to refresh the list
       setTasks([]);
       fetchTasks();
       setTitle('');
@@ -46,29 +44,35 @@ const TasksPage = () => {
 
   return (
     <div className="container">
-      <h2>Your Tasks</h2>
-      <form onSubmit={handleAddTask}>
-        <input
-          type="text"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-          placeholder="Title"
-        />
-        <input
-          type="text"
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
-          placeholder="Description"
-        />
-        <button type="submit">Add Task</button>
-      </form>
-      <div className="tasks-list">
-        {tasks.map(task => (
-          <div className="task" key={task._id}>
-            <Task task={task} />
+        <div className="form-container">
+          <h1>Add a Task</h1>
+          <form onSubmit={handleAddTask}>
+            <input
+              type="text"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+              placeholder="Title"
+            />
+            <input
+              type="text"
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+              placeholder="Description"
+            />
+            <button type="submit">Submit</button>
+          </form>
+        </div>
+        {/* <div className="divider"></div> */}
+        <div className='tasks-container'>
+          <h1 style={{ fontFamily: "Maname, serif" }}>Your Tasks</h1>
+          <div className="tasks-list">
+            {tasks.map(task => (
+              <div className="task" key={task._id}>
+                <Task task={task} />
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
+        </div>
     </div>
   );
 };

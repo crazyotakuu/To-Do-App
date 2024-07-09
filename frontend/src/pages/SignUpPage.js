@@ -18,6 +18,8 @@ const SignUpPage = () => {
   };
 
   return (
+    <>
+    <h1> Signup</h1>
     <form className="signup-form" onSubmit={handleSignUp}>
       <input
         className="signup-input"
@@ -42,6 +44,7 @@ const SignUpPage = () => {
       />
       <button className="signup-button" type="submit">Sign Up</button>
     </form>
+    </>
   );
 };
 
